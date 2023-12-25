@@ -1,32 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const title = (
-  <img
-    src="https://i.pinimg.com/474x/e6/17/f1/e617f1bfb9af4d9cf132cd3dec0da072.jpg"
-    alt="food villa"
-    className="logo"
-  />
-);
-
-const Header = () => {
-  return (
-    <div className="container">
-      {title}
-      <div className="nav-item">
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-//Config Drive Ui
-const data = [
+export const IMG_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"
+export const data = [
   {
     info: {
       id: "69568",
@@ -631,49 +604,3 @@ const data = [
     widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
   },
 ];
-const ReasturantCard = ({ name, cloudinaryImageId, cuisines, avgRating }) => {
-
-  return (
-    <div className="card">
-      <img
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          cloudinaryImageId
-        }
-        alt="burger"
-      />
-      <h2>{name}</h2>
-      <h3>{cuisines.join(",")}</h3>
-      <h4>{avgRating} start</h4>
-    </div>
-  );
-};
-
-//Config Driven UI
-const Body = () => {
-  return (
-    <div className="resturant">
-      {data.map((res, index) => {
-        return <ReasturantCard {...res.info} key={index} />;
-      })}
-    </div>
-  );
-};
-
-const Footer = () => {
-  return <div>Footera</div>;
-};
-
-const AppLayout = () => {
-  return (
-    <>
-      <Header />
-      <Body />
-      <Footer />
-    </>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout />);
